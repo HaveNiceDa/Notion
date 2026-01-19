@@ -46,7 +46,7 @@ export const Navbar = () => {
               asChild
               className="cursor-pointer"
             >
-              <Link href="/documents">Enter Jotion</Link>
+              <Link href="/documents">Enter Notion</Link>
             </Button>
             <UserButton />
           </>
