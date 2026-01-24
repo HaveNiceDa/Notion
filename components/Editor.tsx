@@ -2,8 +2,10 @@
 
 import { useEffect } from "react";
 import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
-import { BlockNoteViewRaw, useCreateBlockNote } from "@blocknote/react";
-import "@blocknote/core/style.css";
+import { useCreateBlockNote } from "@blocknote/react";
+import { BlockNoteView } from "@blocknote/mantine";
+import "@blocknote/mantine/style.css";
+import "@blocknote/core/fonts/inter.css";
 import { useTheme } from "next-themes";
 
 import { useEdgeStore } from "@/lib/edgestore";
@@ -14,7 +16,7 @@ interface EditorProps {
   editable?: boolean;
 }
 
-function Editor({ onChange, initialContent, editable }: EditorProps) {
+function Editor({ onChange, initialContent }: EditorProps) {
   const { resolvedTheme } = useTheme();
   const { edgestore } = useEdgeStore();
 
@@ -45,7 +47,7 @@ function Editor({ onChange, initialContent, editable }: EditorProps) {
 
   return (
     <div>
-      <BlockNoteViewRaw
+      <BlockNoteView
         editor={editor}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
       />
