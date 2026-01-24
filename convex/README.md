@@ -1,12 +1,12 @@
 # Welcome to your Convex functions directory!
 
-Write your Convex functions here.
-See https://docs.convex.dev/functions for more.
+Write your Convex functions here. See
+https://docs.convex.dev/using/writing-convex-functions for more.
 
 A query function that takes two arguments looks like:
 
 ```ts
-// convex/myFunctions.ts
+// functions.js
 import { query } from "./_generated/server";
 import { v } from "convex/values";
 
@@ -36,7 +36,7 @@ export const myQueryFunction = query({
 Using this query function in a React component looks like:
 
 ```ts
-const data = useQuery(api.myFunctions.myQueryFunction, {
+const data = useQuery(api.functions.myQueryFunction, {
   first: 10,
   second: "hello",
 });
@@ -45,7 +45,7 @@ const data = useQuery(api.myFunctions.myQueryFunction, {
 A mutation function looks like:
 
 ```ts
-// convex/myFunctions.ts
+// functions.js
 import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 
@@ -65,7 +65,7 @@ export const myMutationFunction = mutation({
     const id = await ctx.db.insert("messages", message);
 
     // Optionally, return a value from your mutation.
-    return await ctx.db.get("messages", id);
+    return await ctx.db.get(id);
   },
 });
 ```
@@ -73,14 +73,14 @@ export const myMutationFunction = mutation({
 Using this mutation function in a React component looks like:
 
 ```ts
-const mutation = useMutation(api.myFunctions.myMutationFunction);
+const mutation = useMutation(api.functions.myMutationFunction);
 function handleButtonPress() {
   // fire and forget, the most common way to use mutations
   mutation({ first: "Hello!", second: "me" });
   // OR
   // use the result once the mutation has completed
   mutation({ first: "Hello!", second: "me" }).then((result) =>
-    console.log(result),
+    console.log(result)
   );
 }
 ```
