@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
-import { BlockNoteViewRaw, useBlockNote } from "@blocknote/react";
+import { BlockNoteViewRaw, useCreateBlockNote } from "@blocknote/react";
 import "@blocknote/core/style.css";
 import { useTheme } from "next-themes";
 
@@ -24,7 +24,7 @@ function Editor({ onChange, initialContent, editable }: EditorProps) {
     return response.url;
   };
 
-  const editor: BlockNoteEditor = useBlockNote({
+  const editor: BlockNoteEditor = useCreateBlockNote({
     initialContent: initialContent
       ? (JSON.parse(initialContent) as PartialBlock[])
       : undefined,
@@ -33,7 +33,7 @@ function Editor({ onChange, initialContent, editable }: EditorProps) {
 
   useEffect(() => {
     const unsubscribe = editor.onChange(() => {
-      onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
+      onChange(JSON.stringify(editor.document, null, 2));
     });
 
     return () => {
@@ -48,6 +48,7 @@ function Editor({ onChange, initialContent, editable }: EditorProps) {
       <BlockNoteViewRaw
         editor={editor}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
+        editable={editable !== false}
       />
     </div>
   );
