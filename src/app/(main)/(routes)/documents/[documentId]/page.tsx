@@ -3,34 +3,32 @@
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
+import { useParams } from "next/navigation";
 
 import { api } from "../../../../../../convex/_generated/api";
-import { Id } from "../../../../../../convex/_generated/dataModel";
 import { Toolbar } from "@/components/Toolbar";
 import { Cover } from "@/components/Cover";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Id } from "../../../../../../convex/_generated/dataModel";
 
-interface DocumentIdPageProps {
-  params: {
-    documentId: Id<"documents">;
-  };
-}
+export default function DocumentIdPage() {
+  const params = useParams<{ documentId: Id<"documents"> }>();
+  const documentId = params.documentId;
 
-export default function DocumentIdPage({ params }: DocumentIdPageProps) {
   const Editor = useMemo(
     () => dynamic(() => import("@/components/Editor"), { ssr: false }),
     [],
   );
 
   const document = useQuery(api.documents.getById, {
-    documentId: params.documentId,
+    documentId: documentId,
   });
 
   const update = useMutation(api.documents.update);
 
   const onChange = (content: string) => {
     update({
-      id: params.documentId,
+      id: documentId,
       content,
     });
   };
