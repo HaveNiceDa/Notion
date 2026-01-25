@@ -27,7 +27,7 @@
 - **TypeScript** - 类型安全的 JavaScript
 - **Tailwind CSS** - 实用优先的 CSS 框架
 - **BlockNote** - 富文本编辑器
-- **Radix UI** - 可访问性组件库
+- **Shadcn UI** - 基于 Radix UI 的可访问性组件库
 - **Clerk** - 用户认证和管理
 - **Sonner** - 优雅的通知系统
 
