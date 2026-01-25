@@ -53,7 +53,7 @@ export function SearchCommand() {
 
   return (
     <CommandDialog open={isOpen} onOpenChange={onClose}>
-      <CommandInput placeholder={`Search ${user?.fullName}'s Notion-L`} />
+      <CommandInput placeholder={`Search ${user?.fullName}'s Notion`} />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Documents">

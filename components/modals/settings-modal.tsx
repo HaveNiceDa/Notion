@@ -18,7 +18,7 @@ export function SettingsModal() {
           <div className="flex flex-col gap-y-1">
             <Label>Apperance</Label>
             <span className="text-[0.8rem] text-muted-foreground">
-              Customize how Notion-L looks on your device
+              Customize how Notion looks on your device
             </span>
           </div>
           <ModeToggle />

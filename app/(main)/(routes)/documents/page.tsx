@@ -40,7 +40,7 @@ export default function DocumentsPage() {
         height="300"
       />
       <h2 className="text-lg font-medium">
-        Welcome to {user?.firstName}&apos;s Notion-L
+        Welcome to {user?.firstName}&apos;s Notion
       </h2>
       <Button onClick={onCreate}>
         <PlusCircle className="w-4 h-4 mr-2" />

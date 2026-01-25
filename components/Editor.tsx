@@ -16,7 +16,7 @@ interface EditorProps {
   editable?: boolean;
 }
 
-function Editor({ onChange, initialContent }: EditorProps) {
+function Editor({ onChange, initialContent, editable = true }: EditorProps) {
   const { resolvedTheme } = useTheme();
   const { edgestore } = useEdgeStore();
 
@@ -50,6 +50,7 @@ function Editor({ onChange, initialContent }: EditorProps) {
       <BlockNoteView
         editor={editor}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
+        editable={editable}
       />
     </div>
   );

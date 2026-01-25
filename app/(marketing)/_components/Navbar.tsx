@@ -39,7 +39,7 @@ export function Navbar() {
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/documents">Enter Notion-L</Link>
+              <Link href="/documents">Enter Notion</Link>
             </Button>
             <UserButton afterSignOutUrl="/" />
           </>
