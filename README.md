@@ -14,7 +14,7 @@
 - 📤 **文件上传**：集成 Edge Store 支持图片等文件上传
 - 🎨 **响应式设计**：适配不同屏幕尺寸的现代 UI
 - 🌙 **主题色切换**：支持亮色和深色主题切换
-- 🌐 **国际化支持**：基于 MCP 工具实现多语言翻译支持（计划中）
+- 🌐 **国际化支持**：多语言翻译支持（coding中）
 - 🔍 **文档搜索**：快速搜索和定位文档
 - 📁 **文档管理**：支持文档的创建、编辑、归档和删除
 
@@ -114,21 +114,23 @@
 
 ```
 notion/
-├── app/             # Next.js 应用路由
-│   ├── (main)/      # 主应用布局
-│   ├── (marketing)/ # 营销页面
-│   └── api/         # API 路由
-├── components/      # 可复用组件
-│   ├── Editor/      # 富文本编辑器
-│   ├── Toolbar/     # 工具栏
-│   ├── ui/          # UI 组件
-│   └── providers/   # 上下文提供者
+├── src/             # 源代码目录
+│   ├── app/         # Next.js 应用路由
+│   │   ├── (main)/      # 主应用布局
+│   │   ├── (marketing)/ # 营销页面
+│   │   └── api/         # API 路由
+│   ├── components/  # 可复用组件
+│   │   ├── Editor/      # 富文本编辑器
+│   │   ├── Toolbar/     # 工具栏
+│   │   ├── ui/          # UI 组件
+│   │   └── providers/   # 上下文提供者
+│   ├── hooks/       # 自定义 Hooks
+│   └── lib/         # 工具函数
 ├── convex/          # Convex 后端
 │   ├── _generated/  # 自动生成的代码
 │   ├── documents.ts # 文档相关函数
 │   ├── schema.ts    # 数据模型定义
 │   └── auth.config.ts # 认证配置
-├── lib/             # 工具函数
 ├── public/          # 静态资源
 ├── next.config.js   # Next.js 配置
 ├── package.json     # 项目依赖
