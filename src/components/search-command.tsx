@@ -44,11 +44,6 @@ export function SearchCommand() {
     return () => document.removeEventListener("keydown", down);
   }, [toggle]);
 
-  const onSelect = (id: string) => {
-    router.push(`/documents/${id}`);
-    onClose();
-  };
-
   if (!isMounted) {
     return null;
   }
@@ -62,9 +57,12 @@ export function SearchCommand() {
           {documents?.map((document) => (
             <CommandItem
               key={document._id}
-              value={`${document._id}`}
+              value={document.title}
               title={document.title}
-              onSelect={onSelect}
+              onSelect={() => {
+                router.push(`/documents/${document._id}`);
+                onClose();
+              }}
             >
               {document.icon ? (
                 <p className="mr-2 text-[18px]">{document.icon}</p>
