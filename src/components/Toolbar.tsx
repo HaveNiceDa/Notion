@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ElementRef, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { ImageIcon, Smile, X } from "lucide-react";
 import { useMutation } from "convex/react";
 import TextAreaAutoSize from "react-textarea-autosize";
@@ -20,6 +20,7 @@ interface ToolbarProps {
 
 export function Toolbar({ initialData, preview, onEnter }: ToolbarProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(initialData.title);
 
@@ -28,13 +29,50 @@ export function Toolbar({ initialData, preview, onEnter }: ToolbarProps) {
 
   const coverImage = useConverImage();
 
-  const enableInput = () => {
+  const enableInput = (e: React.MouseEvent<HTMLDivElement>) => {
     if (preview) return;
+
+    // 计算点击位置
+    const target = e.currentTarget;
+    const rect = target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // 创建一个临时范围来计算光标位置
+    const range = document.createRange();
+    
+    // 尝试找到点击位置的文本节点
+    let closestNode = target;
+    while (closestNode && closestNode.firstChild) {
+      closestNode = closestNode.firstChild as HTMLDivElement;
+    }
+    
+    let position: number | null = null;
+    
+    if (closestNode && closestNode.nodeType === Node.TEXT_NODE) {
+      range.setStart(closestNode, 0);
+      range.setEnd(closestNode, closestNode.textContent?.length || 0);
+      
+      // 计算光标位置
+      const rangeRect = range.getBoundingClientRect();
+      const textLength = closestNode.textContent?.length || 0;
+      
+      // 简单的线性近似来计算光标位置
+      if (rangeRect.width > 0) {
+        position = Math.min(Math.round((x / rangeRect.width) * textLength), textLength);
+      }
+    }
 
     setIsEditing(true);
     setTimeout(() => {
-      setValue(initialData.title);
-      inputRef.current?.focus();
+      const input = inputRef.current;
+      if (input) {
+        input.focus();
+        // 设置光标位置
+        if (position !== null) {
+          input.setSelectionRange(position, position);
+        }
+      }
     }, 0);
   };
 
@@ -129,6 +167,7 @@ export function Toolbar({ initialData, preview, onEnter }: ToolbarProps) {
         />
       ) : (
         <div
+          ref={titleRef}
           className="pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF]"
           onClick={enableInput}
         >
