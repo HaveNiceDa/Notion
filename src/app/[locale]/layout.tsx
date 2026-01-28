@@ -3,6 +3,7 @@ import { Toaster } from "sonner";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from '@/src/i18n/routing';
 
@@ -13,23 +14,34 @@ import { EdgeStoreProvider } from "@/src/lib/edgestore";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Notion",
-  description: "The connected workspace where better, faster work happens.",
-  icons: {
-    icon: [
-      {
-        media: "(prefers-color-scheme: light)",
-        url: "/logo.svg",
-        href: "/logo.svg",
-      },
-      {
-        media: "(prefers-color-scheme: dark)",
-        url: "/logo-dark.svg",
-        href: "/logo-dark.svg",
-      },
-    ],
-  },
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{
+    locale: string;
+  }>;
+}): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'Layout'});
+  
+  return {
+    title: t('title'),
+    description: t('description'),
+    icons: {
+      icon: [
+        {
+          media: "(prefers-color-scheme: light)",
+          url: "/logo.svg",
+          href: "/logo.svg",
+        },
+        {
+          media: "(prefers-color-scheme: dark)",
+          url: "/logo-dark.svg",
+          href: "/logo-dark.svg",
+        },
+      ],
+    },
+  };
 };
 
 interface RootLayoutProps {

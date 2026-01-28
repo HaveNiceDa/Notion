@@ -1,0 +1,14 @@
+{
+  "SearchCommand": {
+    "placeholder": "搜尋 {name} 的 Notion",
+    "empty": "未找到結果。"
+  },
+  "Cover": {
+    "change": "更換封面",
+    "remove": "移除"
+  },
+  "Layout": {
+    "title": "Notion",
+    "description": "連接的工作空間，讓工作更美好、更高效。"
+  }
+}

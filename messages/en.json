@@ -1,5 +1,14 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "SearchCommand": {
+    "placeholder": "Search {name}'s Notion",
+    "empty": "No results found."
+  },
+  "Cover": {
+    "change": "Change Cover",
+    "remove": "Remove"
+  },
+  "Layout": {
+    "title": "Notion",
+    "description": "The connected workspace where better, faster work happens."
   }
 }
