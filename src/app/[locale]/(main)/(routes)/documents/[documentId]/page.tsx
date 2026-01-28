@@ -3,6 +3,7 @@
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
 import { use, useMemo, useRef } from "react";
+import { useTitle } from "@/src/hooks/use-title";
 import type { EditorRef } from "@/src/components/Editor";
 
 import { api } from "@/convex/_generated/api";
@@ -32,6 +33,9 @@ export default function DocumentIdPage({ params }: DocumentIdPageProps) {
   const update = useMutation(api.documents.update);
 
   const editorRef = useRef<EditorRef>(null);
+
+  // 将浏览器标题设置为文档标题
+  useTitle(document?.title);
 
   const onChange = (content: string) => {
     update({
