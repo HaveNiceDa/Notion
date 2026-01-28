@@ -26,5 +26,35 @@
   "Error": {
     "somethingWentWrong": "出現了錯誤！",
     "goBack": "返回"
+  },
+  "Banner": {
+    "pageInTrash": "此頁面在回收站中。",
+    "restorePage": "恢復頁面",
+    "deleteForever": "永久刪除",
+    "deletingNote": "正在刪除筆記...",
+    "noteDeleted": "筆記已刪除！",
+    "failedToDeleteNote": "刪除筆記失敗。",
+    "restoringNote": "正在恢復筆記...",
+    "noteRestored": "筆記已恢復！",
+    "failedToRestoreNote": "恢復筆記失敗。"
+  },
+  "Menu": {
+    "delete": "刪除",
+    "movingToTrash": "正在移至回收站...",
+    "noteMovedToTrash": "筆記已移至回收站！",
+    "failedToArchiveNote": "歸檔筆記失敗。"
+  },
+  "Publish": {
+    "publish": "發布",
+    "thisNoteLiveOnWeb": "此筆記已發布到網絡",
+    "unpublish": "取消發布",
+    "publishThisNote": "發布此筆記",
+    "shareYourWorkWithOthers": "與他人分享你的作品。",
+    "publishing": "正在發布...",
+    "notePublished": "筆記已發布",
+    "errorToPublishNote": "發布筆記失敗。",
+    "unpublishing": "正在取消發布...",
+    "noteUnpublished": "筆記已取消發布",
+    "errorToUnpublishNote": "取消發布筆記失敗。"
   }
 }

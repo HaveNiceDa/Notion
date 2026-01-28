@@ -26,5 +26,35 @@
   "Error": {
     "somethingWentWrong": "Something went wrong!",
     "goBack": "Go back"
+  },
+  "Banner": {
+    "pageInTrash": "This page is in the Trash.",
+    "restorePage": "Restore page",
+    "deleteForever": "Delete forever",
+    "deletingNote": "Deleting note...",
+    "noteDeleted": "Note deleted!",
+    "failedToDeleteNote": "Failed to delete note.",
+    "restoringNote": "Restoring note...",
+    "noteRestored": "Note restored!",
+    "failedToRestoreNote": "Failed to restore note."
+  },
+  "Menu": {
+    "delete": "Delete",
+    "movingToTrash": "Moving to trash...",
+    "noteMovedToTrash": "Note Moved to trash!",
+    "failedToArchiveNote": "Failed to archive note."
+  },
+  "Publish": {
+    "publish": "Publish",
+    "thisNoteLiveOnWeb": "This note live on web",
+    "unpublish": "Unpublish",
+    "publishThisNote": "Publish this note",
+    "shareYourWorkWithOthers": "Share your work with others.",
+    "publishing": "Publishing...",
+    "notePublished": "Note published",
+    "errorToPublishNote": "Error to publish note.",
+    "unpublishing": "Unpublishing...",
+    "noteUnpublished": "Note unpublished",
+    "errorToUnpublishNote": "Error to unpublish note."
   }
 }

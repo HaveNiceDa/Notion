@@ -5,6 +5,7 @@ import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
 import { MoreHorizontal, Trash } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Id } from "@/convex/_generated/dataModel";
 import {
@@ -25,6 +26,7 @@ interface MenuProps {
 export function Menu({ documentId }: MenuProps) {
   const router = useRouter();
   const { user } = useUser();
+  const t = useTranslations("Menu");
 
   const archive = useMutation(api.documents.archive);
 
@@ -32,9 +34,9 @@ export function Menu({ documentId }: MenuProps) {
     const promise = archive({ id: documentId });
 
     toast.promise(promise, {
-      loading: "Moving to trash...",
-      success: "Note Moved to trash!",
-      error: "Failed to archive note.",
+      loading: t('movingToTrash'),
+      success: t('noteMovedToTrash'),
+      error: t('failedToArchiveNote'),
     });
     router.push("/documents");
   };
@@ -54,7 +56,7 @@ export function Menu({ documentId }: MenuProps) {
       >
         <DropdownMenuItem onClick={onArchive}>
           <Trash className="w-4 h-4 mr-2" />
-          Delete
+          {t('delete')}
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <div className="text-xs text-muted-foreground p-2">

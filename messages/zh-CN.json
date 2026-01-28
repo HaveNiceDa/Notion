@@ -26,5 +26,35 @@
   "Error": {
     "somethingWentWrong": "出现了错误！",
     "goBack": "返回"
+  },
+  "Banner": {
+    "pageInTrash": "此页面在回收站中。",
+    "restorePage": "恢复页面",
+    "deleteForever": "永久删除",
+    "deletingNote": "正在删除笔记...",
+    "noteDeleted": "笔记已删除！",
+    "failedToDeleteNote": "删除笔记失败。",
+    "restoringNote": "正在恢复笔记...",
+    "noteRestored": "笔记已恢复！",
+    "failedToRestoreNote": "恢复笔记失败。"
+  },
+  "Menu": {
+    "delete": "删除",
+    "movingToTrash": "正在移至回收站...",
+    "noteMovedToTrash": "笔记已移至回收站！",
+    "failedToArchiveNote": "归档笔记失败。"
+  },
+  "Publish": {
+    "publish": "发布",
+    "thisNoteLiveOnWeb": "此笔记已发布到网络",
+    "unpublish": "取消发布",
+    "publishThisNote": "发布此笔记",
+    "shareYourWorkWithOthers": "与他人分享你的作品。",
+    "publishing": "正在发布...",
+    "notePublished": "笔记已发布",
+    "errorToPublishNote": "发布笔记失败。",
+    "unpublishing": "正在取消发布...",
+    "noteUnpublished": "笔记已取消发布",
+    "errorToUnpublishNote": "取消发布笔记失败。"
   }
 }
