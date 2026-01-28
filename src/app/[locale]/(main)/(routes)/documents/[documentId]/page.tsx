@@ -2,7 +2,8 @@
 
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
-import { use, useMemo } from "react";
+import { use, useMemo, useRef } from "react";
+import type { EditorRef } from "@/src/components/Editor";
 
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
@@ -30,11 +31,17 @@ export default function DocumentIdPage({ params }: DocumentIdPageProps) {
 
   const update = useMutation(api.documents.update);
 
+  const editorRef = useRef<EditorRef>(null);
+
   const onChange = (content: string) => {
     update({
       id: documentId,
       content,
     });
+  };
+
+  const handleEnter = () => {
+    editorRef.current?.focus();
   };
 
   if (document === undefined) {
@@ -61,8 +68,8 @@ export default function DocumentIdPage({ params }: DocumentIdPageProps) {
     <div className="pb-40">
       <Cover url={document.coverImage} />
       <div className="md:max-w-3xl lg:md-max-w-4xl mx-auto">
-        <Toolbar initialData={document} />
-        <Editor onChange={onChange} initialContent={document.content} />
+        <Toolbar initialData={document} onEnter={handleEnter} />
+        <Editor ref={editorRef} onChange={onChange} initialContent={document.content} />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, forwardRef, useImperativeHandle } from "react";
 import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
@@ -19,7 +19,11 @@ interface EditorProps {
   editable?: boolean;
 }
 
-function Editor({ onChange, initialContent, editable = true }: EditorProps) {
+export interface EditorRef {
+  focus: () => void;
+}
+
+function Editor({ onChange, initialContent, editable = true }: EditorProps, ref: React.Ref<EditorRef>) {
   const { resolvedTheme } = useTheme();
   const { edgestore } = useEdgeStore();
   const params = useParams();
@@ -51,6 +55,16 @@ function Editor({ onChange, initialContent, editable = true }: EditorProps) {
     };
   }, [editor, onChange]);
 
+  // 聚焦到编辑器的方法
+  const focusEditor = () => {
+    editor.focus();
+  };
+
+  // 将focus方法暴露给父组件
+  useImperativeHandle(ref, () => ({
+    focus: focusEditor
+  }));
+
   return (
     <div>
       <BlockNoteView
@@ -62,4 +76,4 @@ function Editor({ onChange, initialContent, editable = true }: EditorProps) {
   );
 }
 
-export default Editor;
+export default forwardRef<EditorRef, EditorProps>(Editor);

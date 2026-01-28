@@ -15,10 +15,11 @@ import { IconPicker } from "./icon-picker";
 interface ToolbarProps {
   initialData: Doc<"documents">;
   preview?: boolean;
+  onEnter?: () => void;
 }
 
-export function Toolbar({ initialData, preview }: ToolbarProps) {
-  const inputRef = useRef<ElementRef<"textarea">>(null);
+export function Toolbar({ initialData, preview, onEnter }: ToolbarProps) {
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(initialData.title);
 
@@ -51,6 +52,7 @@ export function Toolbar({ initialData, preview }: ToolbarProps) {
     if (event.key === "Enter") {
       event.preventDefault();
       disableInput();
+      onEnter?.();
     }
   };
 
