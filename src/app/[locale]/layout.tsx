@@ -75,9 +75,9 @@ export default async function RootLayout({
               disableTransitionOnChange
               storageKey="notion-clone-2"
             >
-              <Toaster position="bottom-center" />
-              <ModalProvider />
               <NextIntlClientProvider locale={locale} messages={messages.default}>
+                <Toaster position="bottom-center" />
+                <ModalProvider />
                 {children}
               </NextIntlClientProvider>
             </ThemeProvider>

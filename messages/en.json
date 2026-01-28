@@ -10,5 +10,14 @@
   "Layout": {
     "title": "Notion",
     "description": "The connected workspace where better, faster work happens."
+  },
+  "Marketing": {
+    "heading": "Your Ideas, Documents, & Plans. Unified. Welcome to Notion",
+    "subheading": "Notion is the connected workspace where better, faster work happens",
+    "enterNotion": "Enter Notion",
+    "getNotionFree": "Get Notion Free",
+    "login": "Login",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions"
   }
 }

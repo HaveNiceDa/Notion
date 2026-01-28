@@ -9,10 +9,12 @@ import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/src/components/ui/button";
 import { Spinner } from "@/src/components/spinner";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function Navbar() {
   const { isAuthenticated, isLoading } = useConvexAuth();
   const scrolled = useScrollTop();
+  const t = useTranslations("Marketing");
 
   return (
     <div
@@ -28,18 +30,18 @@ export function Navbar() {
           <>
             <SignInButton mode="modal">
               <Button variant="ghost" size="sm">
-                Login
+                {t('login')}
               </Button>
             </SignInButton>
             <SignInButton mode="modal">
-              <Button size="sm">Get Joshion free</Button>
+              <Button size="sm">{t('getNotionFree')}</Button>
             </SignInButton>
           </>
         )}
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/documents">Enter Notion</Link>
+              <Link href="/documents">{t('enterNotion')}</Link>
             </Button>
             <UserButton afterSignOutUrl="/" />
           </>

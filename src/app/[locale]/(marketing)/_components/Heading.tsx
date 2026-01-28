@@ -6,19 +6,18 @@ import { useConvexAuth } from "convex/react";
 import { Spinner } from "@/src/components/spinner";
 import Link from "next/link";
 import { SignInButton } from "@clerk/clerk-react";
+import { useTranslations } from "next-intl";
 
 export default function Heading() {
   const { isAuthenticated, isLoading } = useConvexAuth();
+  const t = useTranslations("Marketing");
 
   return (
     <div className="max-w-3xl space-y-4">
-      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
-        Your Ideas, Documents, & Plans. Unified. Welcome to{" "}
-        <span className="underline">Notion</span>
-      </h1>
+      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold" dangerouslySetInnerHTML={{ __html: t('heading').replace('Notion', '<span className="underline">Notion</span>') }} />
+      
       <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-        Notion is the connected workspace where <br />
-        better, faster work happens
+        {t('subheading')}
       </h3>
       {isLoading && (
         <div className="w-full flex justify-center items-center">
@@ -28,7 +27,7 @@ export default function Heading() {
       {isAuthenticated && !isLoading && (
         <Button asChild>
           <Link href="/documents">
-            Enter Notion
+            {t('enterNotion')}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </Button>
@@ -36,7 +35,7 @@ export default function Heading() {
       {!isAuthenticated && !isLoading && (
         <SignInButton>
           <Button>
-            Get Notion Free
+            {t('getNotionFree')}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </SignInButton>

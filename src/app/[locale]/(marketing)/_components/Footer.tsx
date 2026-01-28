@@ -1,7 +1,9 @@
 import { Button } from "@/src/components/ui/button";
 import { Logo } from "./Logo";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+  const t = useTranslations("Marketing");
   return (
     <div className="flex items-center w-full p-6 bg-background z-50 dark:bg-[#1F1F1F]">
       <Logo />
@@ -10,10 +12,10 @@ export function Footer() {
         text-muted-foreground"
       >
         <Button variant="ghost" size="sm">
-          Privacy Policy
+          {t('privacyPolicy')}
         </Button>
         <Button variant="ghost" size="sm">
-          Terms & Conditions
+          {t('termsConditions')}
         </Button>
       </div>
     </div>
