@@ -43,7 +43,8 @@
     "delete": "Delete",
     "movingToTrash": "Moving to trash...",
     "noteMovedToTrash": "Note Moved to trash!",
-    "failedToArchiveNote": "Failed to archive note."
+    "failedToArchiveNote": "Failed to archive note.",
+    "lastEditedBy": "Last edited by: {name}"
   },
   "Publish": {
     "publish": "Publish",

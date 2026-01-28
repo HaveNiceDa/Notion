@@ -60,7 +60,7 @@ export function Menu({ documentId }: MenuProps) {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <div className="text-xs text-muted-foreground p-2">
-          Last edited by: {user?.fullName}
+          {t('lastEditedBy', { name: user?.fullName ?? '' })}
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

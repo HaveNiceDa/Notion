@@ -43,7 +43,8 @@
     "delete": "刪除",
     "movingToTrash": "正在移至回收站...",
     "noteMovedToTrash": "筆記已移至回收站！",
-    "failedToArchiveNote": "歸檔筆記失敗。"
+    "failedToArchiveNote": "歸檔筆記失敗。",
+    "lastEditedBy": "最後編輯者：{name}"
   },
   "Publish": {
     "publish": "發布",
