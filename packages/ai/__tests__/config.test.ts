@@ -62,6 +62,8 @@ describe("AI config", () => {
   describe("isAIModel", () => {
     it("recognizes allowlisted models only", () => {
       expect(isAIModel(DEFAULT_MODEL)).toBe(true);
+      expect(isAIModel("qwen3.8-max")).toBe(true);
+      expect(isAIModel("qwen3.7-max-2026-06-08")).toBe(false);
       expect(isAIModel("glm-5.2")).toBe(false);
     });
   });
