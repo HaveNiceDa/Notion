@@ -1,19 +1,19 @@
 export const AI_MODELS = [
-  "kimi-k2.7-code",
-  "qwen3.8-max",
-  "qwen3.7-plus",
-  "qwen3.7-plus-2026-05-26",
+  "qwen3.8-max-0902",
+  "qwen3.8-flash",
+  "qwen3.8-27b",
+  "kimi-k3",
 ] as const;
 
 export type AIModelId = (typeof AI_MODELS)[number];
 
-export const DEFAULT_AI_MODEL_ID: AIModelId = "kimi-k2.7-code";
+export const DEFAULT_AI_MODEL_ID: AIModelId = "qwen3.8-max-0902";
 
 export const MODEL_DISPLAY_NAMES: Record<AIModelId, string> = {
-  "kimi-k2.7-code": "Kimi Code",
-  "qwen3.8-max": "Qwen Max",
-  "qwen3.7-plus": "Qwen Plus",
-  "qwen3.7-plus-2026-05-26": "Qwen Plus 0526",
+  "qwen3.8-max-0902": "Qwen Max 0902",
+  "qwen3.8-flash": "Qwen Flash",
+  "qwen3.8-27b": "Qwen 27B",
+  "kimi-k3": "Kimi K3",
 };
 
 export function getInitialAIModelId(): AIModelId {

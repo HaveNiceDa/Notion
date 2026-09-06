@@ -52,6 +52,7 @@ describe("AI config", () => {
       AI_MODELS.forEach((model) => {
         expect(getActualModelId(model)).toBe(MODEL_ID_MAPPING[model]);
       });
+      expect(getActualModelId("kimi-k3")).toBe("kimi/kimi-k3");
     });
 
     it("rejects unknown upstream model ids", () => {
@@ -62,8 +63,11 @@ describe("AI config", () => {
   describe("isAIModel", () => {
     it("recognizes allowlisted models only", () => {
       expect(isAIModel(DEFAULT_MODEL)).toBe(true);
-      expect(isAIModel("qwen3.8-max")).toBe(true);
-      expect(isAIModel("qwen3.7-max-2026-06-08")).toBe(false);
+      expect(isAIModel("qwen3.8-max-0902")).toBe(true);
+      expect(isAIModel("qwen3.8-flash")).toBe(true);
+      expect(isAIModel("qwen3.8-27b")).toBe(true);
+      expect(isAIModel("kimi-k3")).toBe(true);
+      expect(isAIModel("qwen3.8-max")).toBe(false);
       expect(isAIModel("glm-5.2")).toBe(false);
     });
   });

@@ -1,26 +1,26 @@
 export const AI_MODELS = [
-  "kimi-k2.7-code",
-  "qwen3.8-max",
-  "qwen3.7-plus",
-  "qwen3.7-plus-2026-05-26",
+  "qwen3.8-max-0902",
+  "qwen3.8-flash",
+  "qwen3.8-27b",
+  "kimi-k3",
 ] as const;
 
 export type AIModel = (typeof AI_MODELS)[number];
 
-export const DEFAULT_MODEL: AIModel = "kimi-k2.7-code";
+export const DEFAULT_MODEL: AIModel = "qwen3.8-max-0902";
 
 export const MODEL_ID_MAPPING: Record<AIModel, string> = {
-  "kimi-k2.7-code": "kimi-k2.7-code",
-  "qwen3.8-max": "qwen3.8-max",
-  "qwen3.7-plus": "qwen3.7-plus",
-  "qwen3.7-plus-2026-05-26": "qwen3.7-plus-2026-05-26",
+  "qwen3.8-max-0902": "qwen3.8-max-0902",
+  "qwen3.8-flash": "qwen3.8-flash",
+  "qwen3.8-27b": "qwen3.8-27b",
+  "kimi-k3": "kimi/kimi-k3",
 };
 
 export const MODEL_DISPLAY_NAMES: Record<AIModel, string> = {
-  "kimi-k2.7-code": "Kimi Code",
-  "qwen3.8-max": "Qwen Max",
-  "qwen3.7-plus": "Qwen Plus",
-  "qwen3.7-plus-2026-05-26": "Qwen Plus 0526",
+  "qwen3.8-max-0902": "Qwen Max 0902",
+  "qwen3.8-flash": "Qwen Flash",
+  "qwen3.8-27b": "Qwen 27B",
+  "kimi-k3": "Kimi K3",
 };
 
 const AI_MODEL_SET = new Set<string>(AI_MODELS);
@@ -62,27 +62,27 @@ export interface ModelConfig {
 
 export const MODELS_CONFIG: ModelConfig[] = [
   {
-    id: "kimi-k2.7-code",
-    actualModelId: "kimi-k2.7-code",
-    displayName: "Kimi Code",
+    id: "qwen3.8-max-0902",
+    actualModelId: "qwen3.8-max-0902",
+    displayName: "Qwen Max 0902",
     enabled: true,
   },
   {
-    id: "qwen3.8-max",
-    actualModelId: "qwen3.8-max",
-    displayName: "Qwen Max",
+    id: "qwen3.8-flash",
+    actualModelId: "qwen3.8-flash",
+    displayName: "Qwen Flash",
     enabled: true,
   },
   {
-    id: "qwen3.7-plus",
-    actualModelId: "qwen3.7-plus",
-    displayName: "Qwen Plus",
+    id: "qwen3.8-27b",
+    actualModelId: "qwen3.8-27b",
+    displayName: "Qwen 27B",
     enabled: true,
   },
   {
-    id: "qwen3.7-plus-2026-05-26",
-    actualModelId: "qwen3.7-plus-2026-05-26",
-    displayName: "Qwen Plus 0526",
+    id: "kimi-k3",
+    actualModelId: "kimi/kimi-k3",
+    displayName: "Kimi K3",
     enabled: true,
   },
 ];

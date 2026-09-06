@@ -12,6 +12,7 @@
 | 查看 Mobile Agent Stream 和当前文档上下文 | `20260614-mobile-agent-stream-client.md`、`20260621-mobile-current-document-context.md` |
 | 查看 CLI/MCP 独立发布 | `20260624-independent-mcp-server.md` |
 | 查看编辑器 AI 稳定性修复与流式模块拆分 | `20260726-editor-ai-stability-and-stream-refactor.md` |
+| 查看 2026 年 9 月 AI 模型列表更新 | `20260906-ai-model-refresh.md` |
 
 ## 当前保留摘要
 
@@ -36,6 +37,7 @@
 - `20260621-mobile-current-document-context.md`：Mobile currentDocument 上下文收口，覆盖文档详情页 AI 入口、Agent Stream 当前文档透传和移动端验证脚本补齐。
 - `20260624-independent-mcp-server.md`：MCP 独立发布链路，覆盖内部 `@mynotion/agent-tools`、`@mynotion/mcp` 和 CLI 兼容入口。
 - `20260726-editor-ai-stability-and-stream-refactor.md`：编辑器 AI 稳定性收口和流式模块拆分，覆盖 thinking mode 兼容、max_tokens、文本丢弃、模型切换、runReActLoop 返回最终状态和 ToolCallAccumulator 共享模块。
+- `20260906-ai-model-refresh.md`：对话模型白名单更新，覆盖 Web/Mobile/共享后端一致性、Kimi 上游 ID 映射和 Embedding 可用性核对。
 
 ## 阅读规则
 
